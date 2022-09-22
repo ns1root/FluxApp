@@ -1,0 +1,22 @@
+# Ignore artifacts:
+build
+coverage
+node_modules/*
+public/*
+
+# prettier config file
+.prettierrc.json
+
+# node.js
+package.json
+package-lock.json
+tsconfig.json
+*.gitignore
+*.js
+
+# README
+README.md
+
+*.yaml
+*.yml
+*.md
