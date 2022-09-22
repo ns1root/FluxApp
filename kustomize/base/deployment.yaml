@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: react
-          image: ghcr.io/ryu-sk/react:1.0.0
+          image: ghcr.io/ns1root/react:1.0.0
           imagePullPolicy: IfNotPresent
           resources:
             limits:

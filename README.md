@@ -19,7 +19,7 @@
    4.1 Weave GitOps 構築  
    4.2 Weave GitOps GUI 確認
 
-![image](https://github.com/ryu-sk/demo-react/blob/main/image/image.png)
+![image](https://github.com/ns1root/FluxApp/blob/main/image/image.png)
 
 ### 1.Kubernetes クラスター構築
 
@@ -442,7 +442,7 @@ cd demo-flux
 #Flux監視するアプリケーションリポジトリを追加
 #--urlは本リポジトリを利用しています。（別のアプリケションリポジトリを指定しても問題ない）
 flux create source git react \
- --url=https://github.com/ryu-sk/demo-react \
+ --url=https://github.com/ns1root/FluxApp \
  --branch=main \
  --interval=30s \
  --export > ./cluster/react-repo-source.yaml
@@ -484,7 +484,7 @@ kubectl get hpa,deploy,svc,pod
 #現在のImageバージョン確認
 kubectl get deploy react -oyaml | grep 'image:'
 #CLI result
-#[ecs-user@k-01 demo-flux]$ kubectl get deploy react -oyaml | grep 'image:' - image: ghcr.io/ryu-sk/react:1.0.0
+#[ecs-user@k-01 demo-flux]$ kubectl get deploy react -oyaml | grep 'image:' - image: ghcr.io/ns1root/react:1.0.0
 
 #手順は省略
 #GithubActionsにて新しい1.0.1バージョンのImageを作成
@@ -492,7 +492,7 @@ kubectl get deploy react -oyaml | grep 'image:'
 #Fluxのイメージ監視設定を追加
 #イメージリポジトリを追加
 flux create image repository react \
---image=ghcr.io/ryu-sk/react \
+--image=ghcr.io/ns1root/react \
 --interval=1m \
 --export > ./cluster/react-image-registry.yaml
 
@@ -518,7 +518,7 @@ flux get image policy
 #CLI result
 #[ecs-user@k-01 demo-flux]$ flux get image policy
 #NAME LATEST IMAGE READY MESSAGE
-#react ghcr.io/ryu-sk/react:1.0.1 True Latest image tag for 'ghcr.io/ryu-sk/react' resolved to: 1.0.1
+#react ghcr.io/ns1root/react:1.0.1 True Latest image tag for 'ghcr.io/ns1root/react' resolved to: 1.0.1
 
 #ImageUpdateAutomation オブジェクト追加
 flux create image update flux-system \
@@ -541,8 +541,8 @@ name: podinfo
 namespace: default
 spec:
   images:
-  - name: ghcr.io/ryu-sk/react
-    newName: ghcr.io/ryu-sk/react # {"$imagepolicy": "flux-system:react:name"}
+  - name: ghcr.io/ns1root/react
+    newName: ghcr.io/ns1root/react # {"$imagepolicy": "flux-system:react:name"}
     newTag: 1.0.0 # {"$imagepolicy": "flux-system:react:tag"}
 
 #Git commit && Flux手動反映
@@ -567,7 +567,7 @@ flux get image update
 #DeploymentのImageバージョン確認（1.0.1になっていればOK）
 kubectl get deploy react -oyaml | grep 'image:'
 #CLI result
-#[ecs-user@k-01 cluster]$ kubectl get deploy react -oyaml | grep 'image:' - image: ghcr.io/ryu-sk/react:1.0.1
+#[ecs-user@k-01 cluster]$ kubectl get deploy react -oyaml | grep 'image:' - image: ghcr.io/ns1root/react:1.0.1
 
 #エラー出る時確認するログ
 #kubectl logs -n flux-system -l app=image-automation-controller
