@@ -1,0 +1,32 @@
+# @format
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react
+  labels:
+    app: react
+    type: frontend
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      type: frontend
+  template:
+    metadata:
+      name: react
+      labels:
+        app: react
+        type: frontend
+    spec:
+      containers:
+        - name: react
+          image: ghcr.io/ryu-sk/react:1.0.0
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80
