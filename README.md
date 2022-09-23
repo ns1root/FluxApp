@@ -1,6 +1,7 @@
 <!-- @format -->
 
-## Kubernetes CI&CD Pipline with GithubActions and Flux（Prometheus && Grafana）
+## Kubernetes CI&CD Pipline with GithubActions and Flux
+## Options: Prometheus + Grafana
 
 ### 目次
 0. 全体構成図
