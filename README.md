@@ -17,11 +17,11 @@
 3. アプリケーション確認
 4. Weave GitOps 構築  
    4.1 Weave GitOps 構築  
-   4.2 Weave GitOps GUI 確認
-5. Kube-Prometheus 構築
-   5.1 Kube-Prometheus 構築
-   5.2 Prometheus Dashboard 確認
-   5.3 Grafana Dashboard 確認
+   4.2 Weave GitOps GUI 確認  
+5. Kube-Prometheus 構築  
+   5.1 Kube-Prometheus 構築  
+   5.2 Prometheus Dashboard 確認  
+   5.3 Grafana Dashboard 確認  
 
 ### 0. 全体構成図
 
