@@ -342,6 +342,8 @@ kubectl get nodes
 | .github/workflows | GithubActions を動かす YAML 定義ファイル<br>・npm build<br>・create docker image<br>・upload docker image to github packages<br> |
 | docker            | Docker Image ビルド用の Dockerfile                                                                                               |      |
 | kustomize         | Flux と連携する Kustomization ファイル                                                                                           |      |
+| weave-gitops | Weave-GitOpsのインストールファイルとNodePortサービス定義ファイル |
+| kube-prometheus | PrometheusとGrafanaのNodePortサービス定義ファイル |
 | ほかのファイル    | デフォルトの React App ファイル                                                                                                  |
 
 #### 2.2 事前準備（Git&Curl インストール）
