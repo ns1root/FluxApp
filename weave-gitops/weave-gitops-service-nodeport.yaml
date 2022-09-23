@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: weave-gitops
+  name: weave-gitops-service-nodeport
   namespace: flux-system
 spec:
   type: NodePort
@@ -9,4 +9,5 @@ spec:
     app.kubernetes.io/instance: ww-gitops
   ports:
     - port: 9001
+      targetPort: 9001
       nodePort: 30009

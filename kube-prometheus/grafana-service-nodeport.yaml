@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana-service-nodeport
+  labels:
+    app: grafana-service-nodeport
+  namespace: monitoring
+spec:
+  type: NodePort
+  selector:
+    app.kubernetes.io/component: grafana
+  ports:
+    - port: 3000
+      targetPort: 3000
+      nodePort: 30008
