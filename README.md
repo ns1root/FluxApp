@@ -1,9 +1,9 @@
 <!-- @format -->
 
-## Kubernetes CI&CD Pipline with GithubActions and Flux
+## Kubernetes CI&CD Pipline with GithubActions and Flux（Prometheus && Grafana）
 
 ### 目次
-
+0. 全体構成図
 1. Kubernetes クラスター構築  
    1.1 仮想マシン構築  
    1.2 Kubernetes のクラスター構築（マスターノード）  
@@ -22,6 +22,8 @@
    5.1 Kube-Prometheus 構築
    5.2 Prometheus Dashboard 確認
    5.3 Grafana Dashboard 確認
+
+### 0. 全体構成図
 
 ![image](https://github.com/ns1root/FluxApp/blob/main/image/image.png)
 
